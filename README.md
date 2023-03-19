@@ -1,6 +1,6 @@
 # REACTI_DESAFIO04
 
-Pruebas React JS, consumo api rest con personajes de rick y morty y filtro de busqueda por nombre del personaje.
+React JS II Desafio 02, consumo api rest con personajes de rick y morty utilizando useContext, useState, useEffect.
 
 ## INSTALAR LIBRERIAS
 npm install
