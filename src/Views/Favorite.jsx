@@ -13,13 +13,19 @@ import AppContext from '../app_context';
 export const Favorite = () => {
 
     console.log('LOADING FAVORITE...')
+    // CARGANDO VARIABLE DATA GLOBAL
     const { data, setData } = useContext(AppContext)
+    // CREANDO HOOK LOCAL DE COMPONENTE CHARACTERS
     const [characters, setCharacters] = useState([])
     console.log('characters', characters)
     console.log('data.characters: ', data.characters);
-
+    // CREANDO HOOK PARA RENDERIZAR
     useEffect(() => {
+        // ARREGLO QUE CONTIENE SOLO LA LISTA DE PERSONAJES FAVORITOS
         let favorites = []
+        // RECORRER VARIABLE GLOBAL CON LA INFORMACIÓN DE FAVORITOS
+        // Y AGREGAR SOLOS LOS QUE CONTENGAN PROPIERDAD FAVORITE EN TRUE
+        // EN LA LISTA DE FAVORITOS
         data.characters.forEach(function (character) {
             console.log('character.favorite: ', character.favorite);
             if (character.favorite) {
@@ -28,12 +34,12 @@ export const Favorite = () => {
             }
         });
         console.log('favorites: ', favorites);
+        // ACTUALIZACIÓN DE HOOK LOCAL
         setCharacters(favorites);
     }, []);
-
     console.log('favorites: ', characters);
 
-    /* FUNCIÓN QUE CREA UN CARD */
+    /* FUNCIÓN QUE CREA UN CARD CON LOS DATOS EN PERSONAJE DE RICK Y MORTY FAVORITOS*/
     const card = (character) => {
         //console.log('load card: ', character)
         return (
@@ -56,20 +62,20 @@ export const Favorite = () => {
     /* FUNCIÓN QUE CREARA LOS CARDS */
     const cards = (characters) => {
         try {
-          //console.log('load cards: ', characters)
-          // RECORRER LISTA INGRESADA
-          const cards = characters.map(function (character, index) {
-            //INVOCAR FUNCIÓN PARA GENERAR UN CARD
-            return card(character, index)
-          });
-          return (<Row id="" className="g-4">{cards}</Row>);
+            //console.log('load cards: ', characters)
+            // RECORRER LISTA INGRESADA
+            const cards = characters.map(function (character, index) {
+                //INVOCAR FUNCIÓN PARA GENERAR UN CARD
+                return card(character, index)
+            });
+            return (<Row id="" className="g-4">{cards}</Row>);
         } catch (ex) {
-          console.log(ex)
-          return (<Row id="" className="g-4"></Row>);
+            console.log(ex)
+            return (<Row id="" className="g-4"></Row>);
         }
-      };
+    };
 
-    // CREACIÓN DE COMPONENTE CONTACT
+    // CREACIÓN DE COMPONENTE FAVORITE
     return (
         <div style={{ maxWidth: "1024px", margin: '0 auto', alignItems: "center", justifyContent: "center", marginTop: '20px', marginBottom: '20px' }}>
             <Form >
