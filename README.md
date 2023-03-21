@@ -1,4 +1,4 @@
-# REACTI_DESAFIO04
+# REACTII_DESAFIO02
 
 React JS II Desafio 02, consumo api rest con personajes de rick y morty utilizando useContext, useState, useEffect.
 
